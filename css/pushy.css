@@ -6,17 +6,19 @@
 /* Menu Appearance */
 
 .pushy{
-    position: fixed;
-    width: 200px;
+    position: absolute;
+    width: 300px;
     height: 100%;
     top: 0;
     z-index: 9999;
     background: #333332;
     font-size: 0.9em;
     font-weight: bold;
+/* -- mobile-navigation.scss for push-right --
     -webkit-box-shadow: inset -10px 0 6px -9px rgba(0, 0, 0, .7);
     -moz-box-shadow: inset -10px 0 6px -9px rgba(0, 0, 0, .7);
     box-shadow: inset -10px 0 6px -9px rgba(0, 0, 0, .7);
+*/
     overflow: auto;
     -webkit-overflow-scrolling: touch; /* enables momentum scrolling in iOS overflow elements */
 }
@@ -45,6 +47,9 @@
     transform: translate3d(-200px,0,0);
 }
 
+/* --------------------------------------- 
+    Causes conflicts with Firefox and IE 
+---------------------------------------- */
 .pushy-open{
     -webkit-transform: translate3d(0,0,0);
     -moz-transform: translate3d(0,0,0);
@@ -53,13 +58,18 @@
     transform: translate3d(0,0,0);
 }
 
-.container-push, .push-push{
+
+/* ------------------------------------------------- 
+    See file mobile-navigation.scss for push-right 
+--------------------------------------------------- */
+/*.container-push, .push-push{
     -webkit-transform: translate3d(200px,0,0);
     -moz-transform: translate3d(200px,0,0);
     -ms-transform: translate3d(200px,0,0);
     -o-transform: translate3d(200px,0,0);
     transform: translate3d(200px,0,0);
 }
+*/
 
 /* Menu Transitions */
 
@@ -87,11 +97,15 @@
     background-color: rgba(0,0,0,0.5);
     -webkit-animation: fade 500ms; 
     -moz-animation: fade 500ms; 
+    -ms-animation: fade 500ms;
     -o-animation: fade 500ms;
     animation: fade 500ms;
 }
 
-@keyframes fade{
+/* -----------------------------
+    Causes conflicts with Grunt 
+------------------------------ */
+/*@keyframes fade{
     0%   { opacity: 0; }
     100% { opacity: 1; }
 }
@@ -106,10 +120,15 @@
     100% { opacity: 1; }
 }
 
+@-ms-keyframes fade{
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}​
+
 @-o-keyframes fade{
     0%   { opacity: 0; }
     100% { opacity: 1; }
-}
+}*/
 
 /* Example Media Query */
 
