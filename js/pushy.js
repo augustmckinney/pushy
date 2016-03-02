@@ -9,7 +9,8 @@ $(function() {
 		container = $('#container'), //container css class
 		push = $('.push'), //css class to add pushy capability
 		siteOverlay = $('.site-overlay'), //site overlay
-		pushyClass = "pushy-left pushy-open", //menu position & menu open class
+		//pushyClass = "pushy-left pushy-open", //menu position & menu open class
+		pushyClass = "pushy-right pushy-open", //menu position & menu open class
 		pushyActiveClass = "pushy-active", //css class to toggle site overlay
 		containerClass = "container-push", //container open class
 		pushClass = "push-push", //css class to add pushy capability
@@ -26,16 +27,16 @@ $(function() {
 
 	function openPushyFallback(){
 		body.addClass(pushyActiveClass);
-		pushy.animate({left: "0px"}, menuSpeed);
-		container.animate({left: menuWidth}, menuSpeed);
-		push.animate({left: menuWidth}, menuSpeed); //css class to add pushy capability
+		pushy.animate({right: "0px"}, menuSpeed);
+		container.animate({right: menuWidth}, menuSpeed);
+		push.animate({right: menuWidth}, menuSpeed); //css class to add pushy capability
 	}
 
 	function closePushyFallback(){
 		body.removeClass(pushyActiveClass);
-		pushy.animate({left: "-" + menuWidth}, menuSpeed);
-		container.animate({left: "0px"}, menuSpeed);
-		push.animate({left: "0px"}, menuSpeed); //css class to add pushy capability
+		pushy.animate({right: "-" + menuWidth}, menuSpeed);
+		container.animate({right: "0px"}, menuSpeed);
+		push.animate({right: "0px"}, menuSpeed); //css class to add pushy capability
 	}
 
 	//checks if 3d transforms are supported removing the modernizr dependency
@@ -76,7 +77,7 @@ $(function() {
 		});
 	}else{
 		//jQuery fallback
-		pushy.css({left: "-" + menuWidth}); //hide menu by default
+		pushy.css({right: "-" + menuWidth}); //hide menu by default
 		container.css({"overflow-x": "hidden"}); //fixes IE scrollbar issue
 
 		//keep track of menu state (open/close)
